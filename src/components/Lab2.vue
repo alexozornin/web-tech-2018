@@ -1,10 +1,12 @@
 <template>
     <div>
       <canvas ref="canvas" :width="canvasSize" :height="canvasSize" @click="canvasClick"></canvas>
-      <div v-text="text"></div>
-      <img :src="pauseSrc" @click="pause()">
-      <img src="static/images/next.png" @click="next()">
-      <div style="">Alexander Ozornin RI-450005</div>
+      <div id="un">
+        <div v-text="text"></div>
+        <img :src="pauseSrc" @click="pause()">
+        <img src="static/images/next.png" @click="next()">
+        <div>Наталья Матросова</div>
+      </div>
     </div>
 </template>
 
@@ -25,7 +27,8 @@ export default {
     };
   },
   async created() {
-    let minSize = Math.min(window.innerWidth, window.innerHeight);
+    await this.sleep(100);
+    let minSize = Math.min(window.innerWidth, window.innerHeight - document.getElementById("un").clientHeight);
     let dv = this.div(minSize, 65);
     this.assetSize = dv.res;
     this.canvasSize = 62 * this.assetSize;
