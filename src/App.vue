@@ -21,4 +21,16 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+.button {
+  margin: 5px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.error {
+  font-weight: bold;
+  color: darkred;
+}
 </style>

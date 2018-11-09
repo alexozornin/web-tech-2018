@@ -1,11 +1,12 @@
 <template>
     <div>
+      <vheader></vheader>
       <canvas ref="canvas" :width="canvasSize" :height="canvasSize" @click="canvasClick"></canvas>
       <div id="un">
         <div v-text="text"></div>
         <img :src="pauseSrc" @click="pause()">
         <img src="static/images/next.png" @click="next()">
-        <div>Наталья Матросова</div>
+        <div>Александр Озорнин РИ-450005</div>
       </div>
     </div>
 </template>
@@ -28,7 +29,10 @@ export default {
   },
   async created() {
     await this.sleep(100);
-    let minSize = Math.min(window.innerWidth, window.innerHeight - document.getElementById("un").clientHeight);
+    let minSize = Math.min(
+      window.innerWidth,
+      window.innerHeight - document.getElementById("un").clientHeight
+    );
     let dv = this.div(minSize, 65);
     this.assetSize = dv.res;
     this.canvasSize = 62 * this.assetSize;
@@ -208,6 +212,9 @@ export default {
       this.pauseBreak = false;
       window.dispatchEvent(this.breakEvent);
     }
+  },
+  components: {
+    vheader: () => import("./vheader")
   }
 };
 </script>

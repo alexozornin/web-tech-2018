@@ -1,6 +1,7 @@
 <template>
   <div>
     <vheader></vheader>
+    <div v-for="item of array" :key="item.id"></div>
   </div>
 </template>
 
@@ -8,14 +9,18 @@
 export default {
   name: "Home",
   data() {
-    return {};
+    return {
+      array: []
+    };
+  },
+  created() {
+    console.log(this.$route);
   },
   components: {
-    vheader: () => import('./vheader')
+    vheader: () => import("./vheader")
   }
 };
 </script>
 
 <style scoped>
-
 </style>

@@ -3,8 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueResource from 'vue-resource'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 function relMouseCoords(event)
 {
@@ -28,7 +29,8 @@ function relMouseCoords(event)
 }
 HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
 
-/* eslint-disable no-new */
+Vue.use(VueResource);
+
 new Vue({
   el: '#app',
   router,

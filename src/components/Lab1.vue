@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header class="sticky">
-            Header
+        <header class="sticky" style="cursor:pointer" @click="home()">
+            Home
         </header>
         <div class="content">
             <div class="menu">
@@ -43,6 +43,17 @@
         </footer>
     </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    home() {
+      this.$router.push({ name: "Home" });
+    }
+  }
+};
+</script>
+
 
 <style scoped>
 header {

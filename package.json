@@ -1,6 +1,6 @@
 {
   "name": "web-tech-2018",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "web-tech-2018 labs & tasks",
   "author": "Alexander <alexozornin97@gmail.com>",
   "private": true,
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "vue": "^2.5.2",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
