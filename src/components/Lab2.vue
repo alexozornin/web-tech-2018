@@ -112,7 +112,7 @@ export default {
     swapMatrixValue(i, j) {
       let value = !this.matrix[i][j];
       if (value) {
-        this.ctx.fillStyle = "#ff0000";
+        this.ctx.fillStyle = "#30cc86";
       } else {
         this.ctx.fillStyle = "#999999";
       }

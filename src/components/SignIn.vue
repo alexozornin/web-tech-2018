@@ -60,7 +60,7 @@ export default {
         email: this.email,
         password: this.password
       });
-      if (response && response.body && response.body.userId) {
+      if (response && response.body && response.body.success) {
         this.$router.push({ name: "Home" });
       } else {
         if (response && response.body && response.body.msg) {

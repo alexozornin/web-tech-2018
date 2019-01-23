@@ -4,6 +4,7 @@
             <div class = "menuitem" @click="home()">Главная</div>
             <div class = "menuitem" @click="lab1()">Лаб 1</div>
             <div class = "menuitem" @click="lab2()">Лаб 2</div>
+            <div class = "menuitem" @click="hh()">Head Hunter</div>
             <div class = "profile" @click="profile()">{{userName}}</div>
         </div>
     </header>
@@ -21,8 +22,8 @@ export default {
   },
   async created() {
     let response = await this.$http.post("/currentuser");
-    if (response && response.body) {
-      let user = response.body;
+    if (response && response.body && response.body.data) {
+      let user = response.body.data;
       this.userId = user.id;
       this.userName = user.name;
     }
@@ -36,6 +37,9 @@ export default {
     },
     lab2() {
       this.$router.push({ name: "Lab2" });
+    },
+    hh() {
+      this.$router.push({ name: "HH" });
     },
     profile() {
       if (this.userId) {
@@ -64,14 +68,13 @@ header {
 .menu {
 width: 100%;
   display: flex;
-  padding: 5px;
 }
 .menuitem {
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
 }
 .profile {
-  margin: 5px;
+  margin: 10px;
   padding-right: 10px;
   margin-left: auto;
   cursor: pointer;

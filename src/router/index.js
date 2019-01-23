@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Admin from '@/components/Admin'
 import Home from '@/components/Home'
+import HH from '@/components/HH'
 import Lab1 from '@/components/Lab1'
 import Lab2 from '@/components/Lab2'
 import Page from '@/components/Page'
@@ -23,6 +24,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/headhunter',
+      name: 'HH',
+      component: HH
     },
     {
       path: '/lab1',
