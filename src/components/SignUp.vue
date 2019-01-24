@@ -67,19 +67,25 @@ export default {
         this.text = "Введите имя";
         return;
       }
-      let res = await this.$http.post("/signup", {
-        email: this.email,
-        password: this.password,
-        firstName: this.firstName,
-        surname: this.surname
+      let res = await this.$http.post("/database", {
+        model: "users",
+        action: "add",
+        params: {
+          data: {
+            email: this.email,
+            password: this.password,
+            firstName: this.firstName,
+            surname: this.surname
+          }
+        }
       });
       if (res && res.body && res.body.success) {
         this.finished = true;
       } else {
-        if (res.body.msg) {
-          this.text = "res.body.msg";
-        }
-        else {
+        console.log('kappa');
+        if (res.body.error && res.body.error.msg) {
+          this.text = res.body.error.msg;
+        } else {
           this.text = "Зарегистрироваться с такими данными невозможно";
         }
       }

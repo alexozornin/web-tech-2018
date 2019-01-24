@@ -56,15 +56,15 @@ export default {
         return;
       }
       this.text = "";
-      let response = this.$http.post("/signin", {
+      let response = await this.$http.post("/signin", {
         email: this.email,
         password: this.password
       });
       if (response && response.body && response.body.success) {
         this.$router.push({ name: "Home" });
       } else {
-        if (response && response.body && response.body.msg) {
-          this.text = response.body.msg;
+        if (response && response.body && response.body.error && response.body.error.msg) {
+          this.text = response.body.error.msg;
         }
         else {
           this.text = "Не удалось выполнить вход";

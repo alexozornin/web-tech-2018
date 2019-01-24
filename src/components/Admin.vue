@@ -28,8 +28,7 @@ export default {
     };
   },
   created() {
-    console.log('query', this.$route.query);
-    console.log('params', this.$route.params);
+    
   },
   components: {
     vheader: () => import("./vheader")

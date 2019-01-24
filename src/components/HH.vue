@@ -16,9 +16,9 @@
         <div style="padding:5px" @click="req()">Найти</div>
       </div>
     </div>
-    <div class="content" style="width: 60%">
-      <div v-for="(item, index) of vc" :key="index" style="border-bottom: 1px solid black">
-        <div>{{item.name}}, {{item.salary}}</div>
+    <div class="content">
+      <div v-for="(item, index) of vc" :key="index" class="vacancy">
+        <div>{{item.name}} ({{item.count}}), {{item.salary}} руб.</div>
         <div>Ключевые навыки: {{item.req}}</div>
       </div>
     </div>
@@ -42,13 +42,14 @@ export default {
   methods: {
     async req() {
       console.log('hh');
-      let res = await this.$http.post("hh", {
+      let res = await this.$http.post("/hh", {
         min: this.min,
         max: this.max,
         num: this.num
       });
+      console.log(res);
       if (res && res.body && res.body.success) {
-        vc = res.body.data;
+        this.vc = res.body.data;
       }
     }
   }
@@ -63,7 +64,15 @@ input {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+.vacancy {
+  font-size: 18px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-bottom: 1px solid black;
+  align-self: center;
 }
 .title {
   font-size: 24px;

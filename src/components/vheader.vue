@@ -22,10 +22,11 @@ export default {
   },
   async created() {
     let response = await this.$http.post("/currentuser");
-    if (response && response.body && response.body.data) {
-      let user = response.body.data;
+    if (response && response.body && response.body.data && response.body.data.user) {
+      let user = response.body.data.user;
+      console.log(user);
       this.userId = user.id;
-      this.userName = user.name;
+      this.userName = user.firstName;
     }
   },
   methods: {
