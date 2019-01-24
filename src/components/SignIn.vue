@@ -56,20 +56,10 @@ export default {
         email: this.email,
         password: this.password
       });
-      console.log(response.body);
       if (response && response.body && response.body.success) {
         this.$router.push({ name: "Home" });
       } else {
-        if (
-          response &&
-          response.body &&
-          response.body.error &&
-          response.body.error.msg
-        ) {
-          this.text = response.body.error.msg;
-        } else {
-          this.text = "Не удалось выполнить вход";
-        }
+        this.text = "Не удалось выполнить вход";
       }
     },
     signUp() {
