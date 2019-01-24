@@ -2,24 +2,20 @@
   <div>
     <vheader></vheader>
     <div class="content">
-        <div class="error">{{text}}</div>
-        <div>
-            <input type="email" placeholder="E-mail" v-model="email" :class="emailClass">
-        </div>
-        <div>
-            <input type="password" placeholder="Пароль" v-model="password" :class="passwordClass">
-        </div>
-        <div class="button">
-          <div style="padding:5px" @click="signIn()">
-              Войти
-          </div>
-        </div>
-        <div>или</div>
-        <div class="button">
-          <div style="padding:5px" @click="signUp()">
-              Зарегистрироваться
-          </div>
-        </div>
+      <div class="error">{{text}}</div>
+      <div>
+        <input type="email" placeholder="E-mail" v-model="email" :class="emailClass">
+      </div>
+      <div>
+        <input type="password" placeholder="Пароль" v-model="password" :class="passwordClass">
+      </div>
+      <div class="button">
+        <div style="padding:5px" @click="signIn()">Войти</div>
+      </div>
+      <div>или</div>
+      <div class="button">
+        <div style="padding:5px" @click="signUp()">Зарегистрироваться</div>
+      </div>
     </div>
   </div>
 </template>
@@ -63,10 +59,15 @@ export default {
       if (response && response.body && response.body.success) {
         this.$router.push({ name: "Home" });
       } else {
-        if (response && response.body && response.body.error && response.body.error.msg) {
+        if (
+          response &&
+          response.body &&
+          response.body.error &&
+          response.body.error.msg
+        ) {
+          console.log(response.body.error.msg);
           this.text = response.body.error.msg;
-        }
-        else {
+        } else {
           this.text = "Не удалось выполнить вход";
         }
       }
