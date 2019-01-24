@@ -56,7 +56,7 @@ export default {
 <style scoped>
 header {
   text-align: left;
-  height: 40px;
+  height: 100%;
   background-color: black;
   color: white;
 }
@@ -67,7 +67,7 @@ header {
   width: 100%;
 }
 .menu {
-width: 100%;
+  width: 100%;
   display: flex;
 }
 .menuitem {
