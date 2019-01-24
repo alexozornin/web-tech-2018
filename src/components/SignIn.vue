@@ -56,7 +56,6 @@ export default {
         email: this.email,
         password: this.password
       });
-      console.log(response.body.error.msg);
       if (response && response.body && response.body.success) {
         this.$router.push({ name: "Home" });
       } else {
